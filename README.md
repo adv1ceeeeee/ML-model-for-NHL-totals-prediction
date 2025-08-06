@@ -328,3 +328,11 @@ CREATE TABLE public.stars (
 ```
 
 Получить данные можно через загрузчик (https://github.com/adv1ceeeeee/HNL-data-loader)
+
+## Legal Disclaimer
+
+This project is not affiliated with, endorsed by, or sponsored by the National Hockey League (NHL).
+All NHL data and logos are property of the NHL and its teams.
+
+The developer of this tool assumes no responsibility for how users employ the data obtained.
+Use of this tool is at your own risk.
