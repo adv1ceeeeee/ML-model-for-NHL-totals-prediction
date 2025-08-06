@@ -365,7 +365,4 @@ CREATE TABLE public.stars (
 );
 ```
 
-Получить данные можно через загрузчик ()
-
-
-
+Получить данные можно через загрузчик (https://github.com/adv1ceeeeee/HNL-data-loader)
