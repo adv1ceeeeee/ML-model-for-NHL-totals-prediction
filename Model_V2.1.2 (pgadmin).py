@@ -25,7 +25,6 @@ from sklearn.feature_selection import SelectKBest, f_regression
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from sklearn.svm import SVR
 from statsmodels.tsa.arima.model import ARIMA
-from psycopg2 import sql
 from xgboost import XGBRegressor
 from colorama import init, Fore, Style
 from concurrent.futures import ThreadPoolExecutor
@@ -38,7 +37,6 @@ from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 
 import tsfel
-import psycopg2
 import hashlib
 import logging
 import warnings
@@ -2713,3 +2711,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
