@@ -156,19 +156,6 @@ model, feat_cols, cat_cols, mae, rmse, *_ = train_stacking_evaluate(
 
 Необходимые данные для работы модели:
 ```bash
-CREATE TABLE public.RosterPlayers (
-  id integer NOT NULL DEFAULT nextval('"RosterPlayers_id_seq"'::regclass),
-  game_id text NOT NULL,
-  team_type text CHECK (team_type = ANY (ARRAY['home'::text, 'away'::text])),
-  player_name text NOT NULL,
-  game_date date,
-  home_team text,
-  away_team text,
-  position text,
-  toi text,
-  CONSTRAINT RosterPlayers_pkey PRIMARY KEY (id),
-  CONSTRAINT RosterPlayers_game_id_fkey FOREIGN KEY (game_id) REFERENCES public.nhl_games_extended(game_id)
-);
 CREATE TABLE public.game_period_stats (
   id integer NOT NULL DEFAULT nextval('game_period_stats_id_seq'::regclass),
   game_id text,
@@ -315,23 +302,6 @@ CREATE TABLE public.nhl_games_extended (
   game_duration double precision,
   CONSTRAINT nhl_games_extended_pkey PRIMARY KEY (game_id)
 );
-CREATE TABLE public.rostersscratches (
-  id integer NOT NULL DEFAULT nextval('rostersscratches_id_seq'::regclass),
-  game_id text NOT NULL,
-  game_date date,
-  home_team text,
-  away_team text,
-  home_roster text,
-  away_roster text,
-  home_scratches text,
-  away_scratches text,
-  home_scratch_count integer,
-  away_scratch_count integer,
-  home_total_players integer,
-  away_total_players integer,
-  CONSTRAINT rostersscratches_pkey PRIMARY KEY (id),
-  CONSTRAINT rosters_scratches_game_id_fkey FOREIGN KEY (game_id) REFERENCES public.nhl_games_extended(game_id)
-);
 CREATE TABLE public.scratches (
   id integer NOT NULL DEFAULT nextval('scratches_id_seq'::regclass),
   game_id text,
@@ -340,14 +310,6 @@ CREATE TABLE public.scratches (
   scratch_order integer,
   CONSTRAINT scratches_pkey PRIMARY KEY (id),
   CONSTRAINT scratches_game_id_fkey FOREIGN KEY (game_id) REFERENCES public.nhl_games_extended(game_id)
-);
-CREATE TABLE public.scratchplayers (
-  id integer NOT NULL DEFAULT nextval('scratchplayers_id_seq'::regclass),
-  game_id text NOT NULL,
-  team_type text CHECK (team_type = ANY (ARRAY['home'::text, 'away'::text])),
-  player_name text NOT NULL,
-  CONSTRAINT scratchplayers_pkey PRIMARY KEY (id),
-  CONSTRAINT scratchplayers_game_id_fkey FOREIGN KEY (game_id) REFERENCES public.nhl_games_extended(game_id)
 );
 CREATE TABLE public.stars (
   id integer NOT NULL DEFAULT nextval('stars_id_seq'::regclass),
